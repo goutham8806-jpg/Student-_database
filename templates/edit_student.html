@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block title %}Edit Student{% endblock %}
+{% block content %}
+<div class="card mx-auto" style="max-width:720px;">
+  <div class="card-body">
+    <h4>Edit Student</h4>
+    <form method="POST">
+      <div class="row g-2">
+        <div class="col-md-4">
+          <label class="form-label" for="batch_no">Batch No</label>
+          <input id="batch_no" name="batch_no" class="form-control" value="{{ student.batch_no }}">
+        </div>
+        <div class="col-md-8">
+          <label class="form-label" for="student_name">Student Name</label>
+          <input id="student_name" name="student_name" class="form-control" value="{{ student.student_name }}">
+        </div>
+      </div>
+      <div class="row g-2 mt-2">
+        <div class="col-md-4">
+          <label class="form-label" for="phone">Phone</label>
+          <input id="phone" name="phone" class="form-control" value="{{ student.phone }}">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label" for="email">Email</label>
+          <input id="email" name="email" class="form-control" value="{{ student.email }}">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label" for="join_date">Join Date</label>
+          <input id="join_date" name="join_date" class="form-control" type="date" value="{{ student.join_date }}">
+        </div>
+      </div>
+      <div class="row g-2 mt-2">
+        <div class="col-md-6">
+          <label class="form-label" for="admin_name">Admin</label>
+          <input id="admin_name" name="admin_name" class="form-control" value="{{ student.admin_name }}">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label" for="trainer_name">Trainer</label>
+          <input id="trainer_name" name="trainer_name" class="form-control" value="{{ student.trainer_name }}">
+        </div>
+      </div>
+      <div class="mt-2">
+        <label class="form-label" for="course_combo">Course Combo</label>
+        <input id="course_combo" name="course_combo" class="form-control" value="{{ student.course_combo }}">
+      </div>
+      <div class="mt-2">
+        <label class="form-label" for="suggestions">Suggestions</label>
+        <textarea id="suggestions" name="suggestions" class="form-control" rows="3">{{ student.suggestions }}</textarea>
+      </div>
+      <div class="mt-3 d-flex gap-2">
+        <button class="btn btn-primary" type="submit">Save Changes</button>
+        <a class="btn btn-secondary" href="{{ url_for('dashboard') }}">Back</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

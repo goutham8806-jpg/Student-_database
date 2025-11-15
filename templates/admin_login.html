@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block title %}Admin Login{% endblock %}
+{% block content %}
+<div class="card mx-auto" style="max-width:420px;">
+  <div class="card-body">
+    <h4>Admin Login</h4>
+    <form method="POST">
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input id="username" name="username" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input id="password" name="password" type="password" class="form-control" required>
+      </div>
+      <button class="btn btn-primary w-100">Login</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

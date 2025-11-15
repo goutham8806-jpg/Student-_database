@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block title %}Add Student{% endblock %}
+{% block content %}
+<div class="card mx-auto" style="max-width:720px;">
+  <div class="card-body">
+    <h4>Add Student</h4>
+    <form method="POST">
+      <div class="row g-2">
+        <div class="col-md-4">
+          <label for="batch_no" class="form-label">Batch No</label>
+          <input id="batch_no" name="batch_no" class="form-control">
+        </div>
+        <div class="col-md-8">
+          <label for="student_name" class="form-label">Name</label>
+          <input id="student_name" name="student_name" class="form-control" required>
+        </div>
+      </div>
+      <div class="row g-2 mt-2">
+        <div class="col-md-4">
+          <label for="phone" class="form-label">Phone</label>
+          <input id="phone" name="phone" class="form-control" required>
+        </div>
+        <div class="col-md-4">
+          <label for="email" class="form-label">Email</label>
+          <input id="email" name="email" class="form-control" type="email">
+        </div>
+        <div class="col-md-4">
+          <label for="join_date" class="form-label">Join Date</label>
+          <input id="join_date" name="join_date" class="form-control" type="date">
+        </div>
+      </div>
+      <div class="row g-2 mt-2">
+        <div class="col-md-6">
+          <label for="admin_name" class="form-label">Admin</label>
+          <input id="admin_name" name="admin_name" class="form-control">
+        </div>
+        <div class="col-md-6">
+          <label for="trainer_name" class="form-label">Trainer</label>
+          <input id="trainer_name" name="trainer_name" class="form-control">
+        </div>
+      </div>
+      <div class="mt-2">
+        <label for="course_combo" class="form-label">Course Combo</label>
+        <input id="course_combo" name="course_combo" class="form-control">
+      </div>
+      <div class="mt-2">
+        <label for="suggestions" class="form-label">Suggestions</label>
+        <textarea id="suggestions" name="suggestions" class="form-control" rows="3"></textarea>
+      </div>
+      <div class="mt-3 d-flex gap-2">
+        <button class="btn btn-primary" type="submit">Add Student</button>
+        <a class="btn btn-secondary" href="{{ url_for('dashboard') }}">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

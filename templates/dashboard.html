@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h3>Admin Dashboard</h3>
+  <div>
+    <a class="btn btn-success me-2" href="{{ url_for('add_student') }}">Add Student</a>
+    <a class="btn btn-outline-secondary" href="{{ url_for('edit_requests') }}">Edit Requests ({{ pending_reqs|length }})</a>
+  </div>
+</div>
+
+<form method="GET" class="row g-2 mb-3">
+  <div class="col-md-4">
+    <label for="search" class="form-label">Search</label>
+    <input id="search" name="search" value="{{ request.args.get('search','') }}" class="form-control" placeholder="name, phone, email">
+  </div>
+  <div class="col-md-8 d-flex gap-2 align-items-end">
+    <button class="btn btn-primary" type="submit">Apply</button>
+    <a class="btn btn-secondary" href="{{ url_for('dashboard') }}">Reset</a>
+    <a class="btn btn-outline-success" href="{{ url_for('export_excel') }}">Export Excel</a>
+    <a class="btn btn-outline-success" href="{{ url_for('export_pdf') }}">Export PDF</a>
+  </div>
+</form>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered">
+    <thead class="table-light"><tr><th>Batch</th><th>Name</th><th>Phone</th><th>Email</th><th>Admin</th><th>Trainer</th><th>Locked</th><th>Req</th><th>Actions</th></tr></thead>
+    <tbody>
+      {% for s in students %}
+      <tr>
+        <td>{{ s.batch_no }}</td>
+        <td><a href="{{ url_for('edit_student', id=s.id) }}">{{ s.student_name }}</a></td>
+        <td>{{ s.phone }}</td><td>{{ s.email }}</td><td>{{ s.admin_name }}</td><td>{{ s.trainer_name }}</td>
+        <td>{{ 'Yes' if s.is_locked else 'No' }}</td>
+        <td>{{ 'Yes' if s.edit_requested else 'No' }}</td>
+        <td>
+          <a class="btn btn-sm btn-outline-primary" href="{{ url_for('edit_student', id=s.id) }}">Edit</a>
+          <form method="POST" action="{{ url_for('delete_student', id=s.id) }}" style="display:inline;">
+            <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Delete?')">Delete</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

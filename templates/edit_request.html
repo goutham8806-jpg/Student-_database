@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block title %}Edit Requests{% endblock %}
+{% block content %}
+<h3>Edit Requests</h3>
+<table class="table">
+  <thead><tr><th>Student</th><th>Requested At</th><th>Status</th><th>Action</th></tr></thead>
+  <tbody>
+    {% for r in requests %}
+    <tr>
+      <td>{{ r.student_name }}</td>
+      <td>{{ r.requested_at }}</td>
+      <td>{{ r.status }}</td>
+      <td>
+        {% if r.status == 'pending' %}
+        <form method="POST" action="{{ url_for('handle_request', req_id=r.id, action='approve') }}" style="display:inline;">
+          <button class="btn btn-sm btn-success" type="submit">Approve</button>
+        </form>
+        <form method="POST" action="{{ url_for('handle_request', req_id=r.id, action='reject') }}" style="display:inline;">
+          <button class="btn btn-sm btn-danger" type="submit">Reject</button>
+        </form>
+        {% else %}
+          {{ r.status }}
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

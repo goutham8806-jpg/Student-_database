@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block title %}Students{% endblock %}
+{% block content %}
+<h3>Students</h3>
+<div class="table-responsive">
+ <table class="table table-bordered table-striped">
+  <thead class="table-light"><tr><th>Batch</th><th>Name</th><th>Phone</th><th>Email</th><th>Trainer</th></tr></thead>
+  <tbody>
+    {% for s in students %}
+    <tr>
+      <td>{{ s.batch_no }}</td>
+      <td><a href="{{ url_for('edit_student', id=s.id) }}">{{ s.student_name }}</a></td>
+      <td>{{ s.phone }}</td>
+      <td>{{ s.email }}</td>
+      <td>{{ s.trainer_name }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+ </table>
+</div>
+{% endblock %}

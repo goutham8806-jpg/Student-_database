@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block title %}Student Register{% endblock %}
+{% block content %}
+<div class="card mx-auto" style="max-width:480px;">
+  <div class="card-body">
+    <h4>Student Register</h4>
+    <form method="POST">
+      <div class="mb-3">
+        <label for="student_name" class="form-label">Name</label>
+        <input id="student_name" name="student_name" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input id="email" name="email" class="form-control" type="email" required>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input id="password" name="password" class="form-control" type="password" required>
+      </div>
+      <button class="btn btn-primary w-100">Register</button>
+    </form>
+    <p class="mt-2">Already registered? <a href="{{ url_for('student_login') }}">Login</a></p>
+  </div>
+</div>
+{% endblock %}

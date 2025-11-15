@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block title %}Student Home{% endblock %}
+{% block content %}
+<div class="card mx-auto" style="max-width:720px;">
+  <div class="card-body">
+    <h4>Welcome, {{ student.student_name }}</h4>
+    <p><strong>Batch:</strong> {{ student.batch_no }}</p>
+    <p><strong>Course:</strong> {{ student.course_combo }}</p>
+    <div class="d-flex gap-2">
+      <a class="btn btn-primary" href="{{ url_for('student_profile') }}">My Profile</a>
+      <a class="btn btn-secondary" href="{{ url_for('student_edit') }}">Edit Info</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

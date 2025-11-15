@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<div class="card mx-auto" style="max-width:720px;">
+  <div class="card-body">
+    <h4>{{ student.student_name }}</h4>
+    <p><strong>Batch:</strong> {{ student.batch_no }}</p>
+    <p><strong>Phone:</strong> {{ student.phone }}</p>
+    <p><strong>Email:</strong> {{ student.email }}</p>
+    <p><strong>Trainer:</strong> {{ student.trainer_name }}</p>
+    <p><strong>Course:</strong> {{ student.course_combo }}</p>
+    <p><strong>Suggestions:</strong> {{ student.suggestions }}</p>
+    <div class="d-flex gap-2 mt-3">
+      {% if not student.is_locked %}
+        <a class="btn btn-primary" href="{{ url_for('student_edit') }}">Edit</a>
+      {% endif %}
+      {% if student.is_locked and not student.edit_requested %}
+        <form method="POST" action="{{ url_for('request_edit') }}" style="display:inline;">
+          <button class="btn btn-warning" type="submit">Request Edit</button>
+        </form>
+      {% endif %}
+      <a class="btn btn-secondary" href="{{ url_for('student_home') }}">Back</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

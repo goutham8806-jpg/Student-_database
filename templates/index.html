@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 40px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 30px;
+        }
+        .box {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        a.button {
+            display: inline-block;
+            padding: 12px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            background: #007bff;
+            color: white;
+            font-size: 16px;
+        }
+        a.button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Welcome to Student Management System</h2>
+
+    <a class="button" href="{{ url_for('admin_login') }}">Admin Login</a>
+    <a class="button" href="{{ url_for('student_login') }}">Student Login</a>
+</div>
+
+</body>
+</html>
