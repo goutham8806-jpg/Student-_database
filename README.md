@@ -83,3 +83,104 @@ Templates	Jinja2
 Database	SQLite / MySQL (depending on your db.py)
 Exports	openpyxl, pandas, reportlab
 Authentication	Flask Session
+⚙️ Installation & Setup
+1️⃣ Clone the repository
+git clone https://github.com/your-username/student_portal_final.git
+cd student_portal_final
+
+2️⃣ Create a virtual environment
+
+Windows:
+
+python -m venv venv
+venv\Scripts\activate
+
+
+Mac/Linux:
+
+python3 -m venv venv
+source venv/bin/activate
+
+3️⃣ Install dependencies
+pip install -r requirements.txt
+
+4️⃣ Initialize the database
+
+The app will auto-create tables on first run (based on db.py).
+Otherwise run manually:
+
+python db.py
+
+5️⃣ Start the application
+python app.py
+
+
+App will run at:
+👉 http://127.0.0.1:5000
+
+🔑 Default Admin Credentials
+
+(Modify or remove if needed)
+
+Username: admin
+Password: admin123
+
+🧪 How Students Use the System
+
+Open website
+
+Go to Student Register
+
+Fill details → account created
+
+Login using email & password
+
+Access student dashboard
+
+Edit profile, view profile, or request changes
+
+Admin reviews all changes via dashboard
+
+🧪 How Admins Use the System
+
+Login via /admin_login
+
+Open admin dashboard
+
+Manage existing students
+
+Approve profile changes
+
+Add/edit/delete students
+
+Export or filter records
+
+📤 Deployment Guide
+Deploy on Render
+
+Build Command → pip install -r requirements.txt
+
+Start Command → gunicorn run:app
+
+Deploy on PythonAnywhere
+
+Upload project
+
+Add web app (Flask)
+
+Point WSGI file to app
+
+Deploy on VPS
+
+Nginx + Gunicorn setup
+
+📄 requirements.txt (Example)
+Flask
+pandas
+openpyxl
+reportlab
+gunicorn
+
+📝 License
+
+This project is for learning and educational use.
