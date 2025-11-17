@@ -1,67 +1,17 @@
-🎓 Student Portal & Admin Management System (Flask)
+📘 Student Portal Management System (Flask + MySQL)
 
-This is a complete Student Portal + Admin Dashboard built using Flask, designed for training institutes, colleges, and coaching centers.
-
-Both students and admins get their own login systems with different permissions.
-
-🚀 Features
-👨‍🎓 Student Features
-
-Student Registration
-
-Login with email & password
-
-Student Dashboard (home page)
-
-View own profile
-
-Edit/update own details
-
-Submit profile update requests
-
-Change password
-
-Restricted access to admin-only features
-
-👨‍💼 Admin Features
-
-Secure Admin Login
-
-Admin Dashboard
-
-Add new students
-
-View all students
-
-View student profiles
-
-Approve/reject edit requests
-
-Edit student details
-
-Delete students
-
-Filters + Search bar
-
-Pagination
-
-Export data to Excel/PDF (if implemented)
-
-Manage batches, trainers (if included)
+A complete web application that allows students to register, log in, update profiles, submit edit requests, and lets an admin manage all student records. Built using Flask, MySQL, HTML/CSS, and follows a clean MVC-style structure.
 
 📂 Project Structure
 student_portal_final/
-│
-├── app.py                 # Flask application (routes, logic)
-├── db.py                  # Database initialization & connection
-├── run.py                 # Run file for production (Gunicorn/UWSGI)
-├── requirements.txt       # Project dependencies
-│
+├── app.py
+├── db.py
+├── run.py
+├── requirements.txt
 ├── static/
-│   └── style.css          # Global stylesheet
-│
+│   └── style.css
 └── templates/
-    ├── layout.html        # Base layout template
+    ├── layout.html
     ├── admin_login.html
     ├── student_register.html
     ├── student_login.html
@@ -75,112 +25,143 @@ student_portal_final/
     ├── student_edit.html
     └── change_password.html
 
-🛠️ Tech Stack
-Purpose	Technology
-Backend	Flask (Python)
-Frontend	HTML, CSS, Bootstrap (optional)
-Templates	Jinja2
-Database	SQLite / MySQL (depending on your db.py)
-Exports	openpyxl, pandas, reportlab
-Authentication	Flask Session
-⚙️ Installation & Setup
-1️⃣ Clone the repository
-git clone https://github.com/your-username/student_portal_final.git
-cd student_portal_final
+🚀 Project Overview
 
-2️⃣ Create a virtual environment
+The Student Portal is a full-stack web application designed to streamline academic record management.
 
-Windows:
+It includes:
 
-python -m venv venv
-venv\Scripts\activate
+✔ Student registration & login
+✔ Admin authentication
+✔ Add / edit / delete student records
+✔ Students can update profile details
+✔ Students can submit edit requests
+✔ Password update module
+✔ Secure DB operations with MySQL
+✔ Clean HTML templates with Flask Jinja
 
+This project is ideal for showcasing skills in Flask, SQL, CRUD operations, authentication, and full-stack development.
 
-Mac/Linux:
+🛠 Tech Stack
+Backend
 
-python3 -m venv venv
-source venv/bin/activate
+Python (Flask Framework)
 
-3️⃣ Install dependencies
+MySQL Database
+
+Jinja2 Templating
+
+Frontend
+
+HTML5
+
+CSS (Custom stylesheet)
+
+Bootstrap (optional)
+
+Environment
+
+Python 3.x
+
+XAMPP / MySQL Server
+
+Virtual Environment (optional)
+
+📌 Key Features
+🔐 Authentication System
+
+Student Login
+
+Admin Login
+
+Password Change Module
+
+👨‍🎓 Student Module
+
+Register new student
+
+Student dashboard
+
+View and update student profile
+
+Submit profile change requests
+
+Track request status
+
+🧑‍💼 Admin Module
+
+Add new students
+
+Edit student details
+
+Delete students
+
+View all student records
+
+View & approve/reject edit requests
+
+🗄 Database Features
+
+Structured student table
+
+Request tracking table
+
+Clean DB connection via db.py
+
+▶️ How to Run the Project Locally
+1️⃣ Install Dependencies
 pip install -r requirements.txt
 
-4️⃣ Initialize the database
+2️⃣ Start MySQL Server
 
-The app will auto-create tables on first run (based on db.py).
-Otherwise run manually:
+Using XAMPP or Service Manager:
 
-python db.py
+Start MySQL
 
-5️⃣ Start the application
-python app.py
+3️⃣ Create Database
+
+In MySQL:
+
+CREATE DATABASE student_portal;
 
 
-App will run at:
+Run the SQL schema (if you provide it, I will add it here).
+
+4️⃣ Run the Application
+python run.py
+
+
+App will start at:
+
 👉 http://127.0.0.1:5000
 
-🔑 Default Admin Credentials
-
-(Modify or remove if needed)
-
+🧪 Admin Credentials (Demo)
 Username: admin
 Password: admin123
 
-🧪 How Students Use the System
+🎯 Skills Demonstrated
 
-Open website
+Full-stack development (Flask + HTML/CSS)
 
-Go to Student Register
+SQL CRUD operations
 
-Fill details → account created
+Authentication system
 
-Login using email & password
+Template rendering with Jinja
 
-Access student dashboard
+MVC-style application structure
 
-Edit profile, view profile, or request changes
+Clean modular code (app.py, db.py)
 
-Admin reviews all changes via dashboard
+Form handling with Flask
 
-🧪 How Admins Use the System
+Working with sessions & security
 
-Login via /admin_login
+Deployment-ready Python web project
 
-Open admin dashboard
+📎 GitHub Link
 
-Manage existing students
+(Replace after uploading)
 
-Approve profile changes
+https://github.com/goutham8806-jpg/Student-Portal-Management-System-Flask-MySQL
 
-Add/edit/delete students
-
-Export or filter records
-
-📤 Deployment Guide
-Deploy on Render
-
-Build Command → pip install -r requirements.txt
-
-Start Command → gunicorn run:app
-
-Deploy on PythonAnywhere
-
-Upload project
-
-Add web app (Flask)
-
-Point WSGI file to app
-
-Deploy on VPS
-
-Nginx + Gunicorn setup
-
-📄 requirements.txt (Example)
-Flask
-pandas
-openpyxl
-reportlab
-gunicorn
-
-📝 License
-
-This project is for learning and educational use.
